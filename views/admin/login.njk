@@ -1,0 +1,72 @@
+{% extends "admin/auth-layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<!-- Start Login Wrapper -->
+<div class="sufee-login login-wrapper d-flex align-content-center flex-wrap">
+    <div class="login-content-left">
+        <div class="login-content">
+            <div class="login-logo">
+                <a href="/admin">
+                    <img class="align-content" src="/admin/assest/images/logo-1.png" alt="">
+                </a>
+            </div>
+            <div class="login-form">
+                <div class="login-title">
+                    <h2>
+                        Log In
+                    </h2>
+                    <p>
+                        Welcome to Meta.
+                    </p>
+                </div>
+                <form id="formAuthentication" action="/admin/login" method="POST" data-redirect="/admin"
+                    data-schema="login">
+                    <input type="hidden" name="role" value="54">
+                    <div class="form-group mb-3">
+                        <label for="loginEmail">Email address<span class="mailstar" style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email"
+                            autofocus />
+                        <div class="invalid-feedback-box"></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="loginPassword">Password<span class="mailstar" style="color: red;">*</span></label>
+                        <div class="input-password-wrap">
+                            <input type="password" id="password-input" class="form-control" name="password"
+                                placeholder="Enter your password" aria-describedby="password" />
+                            <i class="fa fa-eye-slash togglePassword" id="togglePassword"
+                                style="margin-left: -30px; cursor: pointer;"></i>
+                        </div>
+                        <div class="invalid-feedback-box"></div>
+
+                    </div>
+
+                    <div class="forgot-wrapper mt-4 mb-5">
+                        {# <label>
+                            <input type="checkbox"> Remember Me
+                        </label> #}
+                        <a href="/admin/forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="submitBtn btn btn-success btn-flat m-b-30 m-t-30 mb-4">Sign
+                        in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="login-content-right">
+        <div class="login-bg-wrapo">
+            <img src="/admin/assest/images/login-bg2.png" alt="login">
+        </div>
+    </div>
+</div>
+<!-- End Login Wrapper -->
+
+{% endblock %}
+
+{% block scriptBlock %}
+<script src="/admin/custom.js"></script>
+
+{% endblock %}

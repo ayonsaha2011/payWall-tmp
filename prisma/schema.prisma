@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator tsed {
+  provider = "tsed-prisma"
+  output   = "../src/prisma"
+}
+
+// @TsED.Groups("!creation", "!update")
+model User {
+  /// @TsED.Groups("!creation")
+  id            Int     @id @default(autoincrement())
+  userSessionId String  @unique @db.VarChar(128)
+  /// @TsED.Email()
+  /// @TsED.Description("User email. This email must be unique!")
+  /// @TsED.Groups("credentials", "creation")
+  email         String? @unique @db.VarChar(100)
+  // email         String? @db.VarChar(100)
+  name          String? @db.VarChar(128)
+  /// @TsED.Groups("credentials", "creation")
+  /// @TsED.Ignore(ctx.endpoint === true)
+  password      String? @db.VarChar(128)
+
+  firstName String?   @db.VarChar(64)
+  lastName  String?   @db.VarChar(64)
+  image     String?   @db.VarChar(128)
+  gender    String?   @db.VarChar(32)
+  phone     String?   @db.VarChar(32)
+  birthday  DateTime?
+  address   String?   @db.Text()
+
+  role Int @default(2) @db.SmallInt() // 54: Admin, 2: user
+
+  /// @TsED.Groups("!creation")
+  token           String?   @unique
+  /// @TsED.Groups("!creation")
+  tokenExpiration DateTime?
+  /// @TsED.Groups("!creation")
+  isEmailVerified Boolean?  @default(false)
+  /// @TsED.Groups("!creation")
+  isActive        Boolean?  @default(true)
+  /// @TsED.Groups("!creation")
+  deleted         Boolean?  @default(false)
+  /// @TsED.Groups("!creation")
+  deletedAt       DateTime?
+  /// @TsED.Groups("!creation", "!update")
+  createdAt       DateTime? @default(now())
+  /// @TsED.Groups("!creation")
+  updatedAt       DateTime? @default(now())
+}

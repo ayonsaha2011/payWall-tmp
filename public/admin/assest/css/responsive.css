@@ -1,0 +1,343 @@
+@media(max-width:1440px){
+    .register-wrapper .login-form {
+        padding-top: 0;
+    }
+
+    .register-wrapper .form-group.mb-4 {
+        margin-bottom: 1rem !important;
+    }
+
+    .chatbot-wrapper{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media(max-width:1200px){
+    .login-bg-wrapo img {
+        height: 100%;
+        object-fit: contain;
+    }
+    .login-bg-wrapo {
+        width: 100%;
+        height: 100%;
+    }
+    .login-wrapper>div {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .login-wrapper{
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start !important;
+        align-content: flex-start !important;
+        overflow-y:auto;
+    }
+
+    .chatbot-wrapper{
+        grid-template-columns: 100%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:844px) and (orientation:landscape){
+    .login-wrapper>div {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media(max-width:991px){
+    .edit-theme-box{
+        max-width: 230px !important;
+    }
+
+    .createTheme.toggled .page-content {
+        padding-left: 320px !important;
+    }
+
+    .chatbot-wrapper{
+        grid-template-columns: 100%;
+    }
+
+    .someheader-wrap .container-fluid {
+        padding: 0 10px !important;
+    }
+}
+
+@media(max-width:767px){
+
+    .footer-wrapper{
+        margin-top: 2rem;
+    }
+
+    .profile-page.iphone .page-wrapper .page-content{
+        height: calc(100vh - 128px);
+    }
+
+    .page-wrapper .page-content{
+        padding-bottom: 0 !important;
+    }
+
+    .password-footer {
+        margin-top: 7rem;
+    }
+
+    .page-wrapper{
+        height: auto !important;
+    }
+
+    #show-sidebar{
+        top: 19px !important;
+        background-color: #363636  !important;
+        border-color: #363636 !important;
+    }
+
+    .makeStyles-footerContainer-47{
+        /* position: fixed; */
+        bottom: 0;
+        left: 0;
+    }
+
+    .profile-wrapper {
+        min-height: auto;
+      }
+
+    .login-wrapper{
+        grid-template-columns: 1fr;
+    }
+
+    .login-bg-wrapo{
+        display: none;
+    }
+
+    #show-sidebar{
+        position: absolute !important;
+    }
+
+    .chatbot-wrapper{
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+    
+body.sidebar-open{
+    position: relative;
+  }
+  
+  body.sidebar-open nav#sidebar {
+    display: block;
+  }
+
+    body.sidebar-open::before {
+        content: '';
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        background-color: #0000005e;
+    }
+
+    .chatbot-wrapper .botIcon{
+        width: 100%;
+    }
+
+    .page-wrapper.chiller-theme .sidebar-wrapper {
+        display: none;
+    }
+
+    .page-wrapper.toggled #show-sidebar {
+        left: 0 !important;
+    }
+
+    .login-form,.register-wrapper .login-form {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: calc(100% - 20px);
+        margin: 0 auto;
+    }
+
+    .login-wrapper .login-content-left{
+        height: 100vh;
+    }
+
+    .login-form{
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    }
+
+    .login-wrapper {
+        width: 100%;
+        height: calc(100% + 1px);
+        background-color: #ffffff;
+        /* height: 100vh; */
+        overflow-y: auto;
+        flex-direction: column-reverse;
+        flex-wrap: inherit !important;
+    }
+
+    .login-wrapper>div {
+        width: 100%;
+        height: auto;
+    }
+
+    .login-bg-wrapo {
+        max-height: 300px;
+        overflow: hidden;
+    }
+    .login-bg-wrapo img{
+        height: 100px;
+    }
+    .login-content{
+        margin: 1vh auto;
+    }
+    .dataTables_wrapper .dataTables_length {
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+    .dataTables_wrapper .dataTables_filter {
+        float: right;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+        margin-top: 0;
+    }
+   
+    .dataTables_wrapper .dataTables_paginate {
+        float: right;
+        text-align: right;
+        padding-top: .25em;
+        margin-top: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .dataTables_wrapper .dataTables_info {
+        clear: both;
+        float: left;
+        padding-top: .755em;
+        text-align: center;
+        width: 100%;
+    }
+
+    table.dataTable {
+        width: 100%;
+        margin: 0 auto;
+        clear: both;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .inner-profile-wrap {
+        padding: 0 .2rem;
+    }
+    .head-title .temp-title {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .head-title .temp-title h2{
+        font-size: 24px;
+    }
+    .header-bg{
+        padding: 20px 0;
+    }
+    /*profile-page css 27-09-2023*/
+    body.profile-page{
+        overflow:hidden;
+    }
+    .profile-page .page-wrapper {
+        height: 100vh !important;
+    }
+    /* .profile-page .page-wrapper .sidebar-top-header {
+        height: 47px;
+    } */
+    .profile-page .page-wrapper .page-content {
+        height: calc(100vh - 103px);
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        justify-content: space-between;
+    }
+    .profile-page .page-wrapper .page-content .footer-wrapper{
+        margin-top: 0px;
+        padding-top: 20px;
+    }
+
+    .edit-theme-box{
+        max-width: 100% !important;
+        position: inherit !important;
+        margin-top: 1rem;
+    }
+
+    .createTheme.toggled .page-content{
+        padding-left: 0 !important;
+    }
+
+    .page-wrapper.toggled .sidebar-top-header{
+        position: inherit !important;
+    }
+
+    .page-wrapper{
+        margin-top: 0 !important;
+    }
+
+    .sidebar-wrapper .sidebar-brand{
+        display: block !important;
+    }
+
+    .sidebar-wrapper {
+        top: 0 !important;
+        width: 100%;
+        max-width: 150px !important;
+    }
+
+    .sidebar-wrapper .sidebar-brand a {
+        display: none;
+    }
+
+    .sidebar-wrapper .sidebar-brand #close-sidebar {
+        text-align: end;
+    }
+
+    .sidebar-wrapper .sidebar-menu .sidebar-submenu{
+        left: 150px !important;
+    }
+
+    .login-title h2{
+        font-size: 24px;
+    }
+
+    .parking-list{
+        display: none;
+    }
+
+    .parking-wrapper{
+        padding-left: 30px;
+    }
+
+    .profileLayout .user-info{
+        font-size: 13px !important;
+    }
+}
+
+@media(max-width:400px){
+    .profileLayout .user-info{
+        font-size: 13px !important;
+    }
+}
+
+@media(max-width:350px){
+    .makeStyles-footerContainer-47{
+        font-size: 13px;
+    }
+
+    .login-form{
+        padding: 1.5rem 1rem;
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "directory": [
+    "./src/controllers/rest",
+    "./src/controllers/pages",
+    "./src/controllers/admin",
+    "./src/datasources",
+    "./src/resolvers"
+  ],
+  "exclude": [
+    "__mock__",
+    "__mocks__",
+    ".spec.ts"
+  ],
+  "delete": true
+}
