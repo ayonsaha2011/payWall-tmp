@@ -18,17 +18,16 @@ generator tsed {
 // @TsED.Groups("!creation", "!update")
 model User {
   /// @TsED.Groups("!creation")
-  id            Int     @id @default(autoincrement())
-  userSessionId String  @unique @db.VarChar(128)
+  id       Int     @id @default(autoincrement())
   /// @TsED.Email()
   /// @TsED.Description("User email. This email must be unique!")
   /// @TsED.Groups("credentials", "creation")
-  email         String? @unique @db.VarChar(100)
+  email    String? @unique @db.VarChar(100)
   // email         String? @db.VarChar(100)
-  name          String? @db.VarChar(128)
+  name     String? @db.VarChar(128)
   /// @TsED.Groups("credentials", "creation")
   /// @TsED.Ignore(ctx.endpoint === true)
-  password      String? @db.VarChar(128)
+  password String? @db.VarChar(128)
 
   firstName String?   @db.VarChar(64)
   lastName  String?   @db.VarChar(64)
@@ -56,4 +55,60 @@ model User {
   createdAt       DateTime? @default(now())
   /// @TsED.Groups("!creation")
   updatedAt       DateTime? @default(now())
+}
+
+model Chatbot {
+  /// @TsED.Groups("!creation")
+  db_id Int @id @default(autoincrement())
+
+  id                           String
+  name                         String
+  user_id                      String
+  visibility                   String?
+  created_at                   DateTime
+  thumbnail_url                String?
+  is_featured                  Boolean
+  domains                      String?
+  instructions                 String?
+  initial_message              String?
+  index_name                   String
+  ip_limit                     Int?
+  ip_limit_timeframe           String?
+  ip_limit_message             String?
+  suggested_messages           String?
+  initial_messages             String?
+  user_message_color           String?
+  styles                       String?
+  model                        String
+  last_message_at              DateTime
+  num_of_characters            Int
+  last_trained_at              DateTime
+  status                       String
+  temp                         Int
+  collect_customer_info        String?
+  collect_customer_information String?
+  only_allow_on_added_domains  Boolean
+  notifications_settings       String?
+  retraining_interval          String
+  custom_domains               String?
+  current_training_id          String?
+  /// @TsED.Groups("!creation", "!update")
+  db_createdAt                 DateTime? @default(now())
+  /// @TsED.Groups("!creation")
+  db_updatedAt                 DateTime? @updatedAt
+}
+
+model ContactUs {
+  id        Int       @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String
+  phone     String
+  message   String
+  /// @TsED.Groups("!creation")
+  isActive  Boolean?  @default(true)
+  /// @TsED.Groups("!creation", "!update")
+  createdAt DateTime? @default(now())
+  /// @TsED.Groups("!creation")
+  updatedAt DateTime? @updatedAt
 }

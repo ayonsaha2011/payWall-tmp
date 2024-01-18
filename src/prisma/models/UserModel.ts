@@ -9,10 +9,6 @@ export class UserModel implements User {
   id: number;
 
   @Property(String)
-  @Required()
-  userSessionId: string;
-
-  @Property(String)
   @Allow(null)
   @Email()
   @Description("User email. This email must be unique!")

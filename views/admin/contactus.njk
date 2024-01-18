@@ -1,0 +1,56 @@
+{% extends "admin/main-layout.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+            <section class="user-wrapper">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="card">
+                           <div class="card-header d-flex">
+                              <strong class="card-title">ContactUs List</strong>
+                              
+                           </div>
+                           <div class="card-body">
+                              <table id="userlistdata" class="dataTable_wrap table table-striped table-bordered">
+                                 <thead>
+                                    <tr>
+                                       <th>S. No.</th>
+                                       <th>First Name</th>
+                                       <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Message</th>
+                                        <th>Created At</th>
+
+
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    {% for contact in contacts %}
+                                        <tr>
+                                            <td>{{contact.id}}</td>
+                                            <td>{{contact.firstName}}</td>
+                                            <td>{{contact.lastName}}</td>
+                                            <td>{{contact.email}}</td>
+                                            <td>{{contact.phone}}</td>
+                                            <td>{{contact.message}}</td>
+                                            <td>{{contact.createdAt}}</td>
+                                            
+                                        </tr>
+                                    {% endfor %}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+{% endblock %}
+
+{% block scriptBlock %}
+    <script src="/admin/custom.js"></script>
+{% endblock %}

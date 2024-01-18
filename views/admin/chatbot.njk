@@ -1,0 +1,52 @@
+{% extends "admin/main-layout.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+            <section class="user-wrapper">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="card">
+                           <div class="card-header d-flex">
+                              <strong class="card-title">Chatbot List</strong>
+                              <div class="float-right reservation-list-wrapper">
+                                 <a href="/admin/chatbot/sync" class="btn btn-light user-addon">
+                                    <i class="fa fa-plus mr-1"></i>Sync Chatbots
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              <table id="userlistdata" class="dataTable_wrap table table-striped table-bordered">
+                                 <thead>
+                                    <tr>
+                                       <th>S. No.</th>
+                                       <th>Name</th>
+                                        <th>Status</th>
+                                        <th>Created At</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    {% for chatbot in chatbots %}
+                                        <tr>
+                                            <td>{{chatbot.id}}</td>
+                                            <td>{{chatbot.name}}</td>
+                                            <td>{{chatbot.status}}</td>
+                                            <td>{{chatbot.created_at}}</td>
+                                        </tr>
+                                    
+                                    {% endfor %}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+{% endblock %}
+
+{% block scriptBlock %}
+    <script src="/admin/custom.js"></script>
+{% endblock %}

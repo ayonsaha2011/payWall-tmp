@@ -5,11 +5,13 @@ import { UseAuth } from "@tsed/platform-middlewares";
 import { UsersService } from '../../services/UsersService';
 import { BodyParams, Context, Req, Session } from "@tsed/common";
 import { ErrorHandlingService } from '../../services/ErrorHandlingService';
+import { ContactUsService } from '../../services/ContactUsService';
 
 @Controller("/")
 @UseAuth(AuthMiddleware, { role: 54 })
 export class DashboardController {
     @Inject() private usersService: UsersService;
+    @Inject() private contactUsService: ContactUsService;
 
 
     @Get("/")
@@ -105,6 +107,16 @@ export class DashboardController {
             return ErrorHandlingService.ProcessError(error);
         }
 
+    }
+
+    @Get("/contact-us")
+    @View("admin/contactus.njk")
+    async contactus() {
+        const contacts = await this.contactUsService.findMany({});
+
+
+
+        return { title: "ContactUs", path: "contactus", breadcrumbs: 'ContactUs', contacts }
     }
 
 }
