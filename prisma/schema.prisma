@@ -63,35 +63,39 @@ model Chatbot {
 
   id                           String
   name                         String
-  user_id                      String
+  user_id                      String?
   visibility                   String?
-  created_at                   DateTime
+  created_at                   DateTime?
   thumbnail_url                String?
-  is_featured                  Boolean
-  domains                      String?
+  is_featured                  Boolean?
+  domains                      Json?
   instructions                 String?
   initial_message              String?
-  index_name                   String
+  initial_messages             Json?
+  index_name                   String?
   ip_limit                     Int?
-  ip_limit_timeframe           String?
+  ip_limit_timeframe           Int?
   ip_limit_message             String?
   suggested_messages           String?
-  initial_messages             String?
   user_message_color           String?
-  styles                       String?
-  model                        String
-  last_message_at              DateTime
-  num_of_characters            Int
-  last_trained_at              DateTime
-  status                       String
-  temp                         Int
+  styles                       Json?
+  model                        String?
+  last_message_at              DateTime?
+  num_of_characters            Int?
+  last_trained_at              DateTime?
+  status                       String?
+  temp                         Int?
   collect_customer_info        String?
-  collect_customer_information String?
-  only_allow_on_added_domains  Boolean
+  collect_customer_information Json?
+  only_allow_on_added_domains  Boolean?
   notifications_settings       String?
-  retraining_interval          String
+  retraining_interval          String?
   custom_domains               String?
   current_training_id          String?
+  /// @TsED.Groups("!creation")
+  singlePlan                   Boolean?  @default(false)
+  /// @TsED.Groups("!creation")
+  isActive                     Boolean?  @default(true)
   /// @TsED.Groups("!creation", "!update")
   db_createdAt                 DateTime? @default(now())
   /// @TsED.Groups("!creation")

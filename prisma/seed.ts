@@ -8,7 +8,6 @@ async function main() {
         where: { email: 'admin@paywall.com' },
         update: { password: password, isActive: true },
         create: {
-            userSessionId: 'AdminSession',
             email: 'admin@paywall.com',
             name: 'Admin',
             password: password,

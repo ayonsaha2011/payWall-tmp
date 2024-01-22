@@ -14,6 +14,7 @@ export class PublicMiddleware implements MiddlewareMethods {
             if (user?.role === 54) {
                 return ctx.response.redirect(302, "/admin/");
             }
+            return ctx.response.redirect(302, "/user/");
         }
     }
 }

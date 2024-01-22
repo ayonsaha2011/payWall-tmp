@@ -3,4 +3,5 @@
  */
 
 export * from "./AuthController";
+export * from "./ChatbotController";
 export * from "./DashboardController";

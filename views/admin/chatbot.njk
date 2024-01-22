@@ -12,7 +12,7 @@
                               <strong class="card-title">Chatbot List</strong>
                               <div class="float-right reservation-list-wrapper">
                                  <a href="/admin/chatbot/sync" class="btn btn-light user-addon">
-                                    <i class="fa fa-plus mr-1"></i>Sync Chatbots
+                                   Sync Chatbots
                                  </a>
                               </div>
                            </div>
@@ -21,18 +21,46 @@
                                  <thead>
                                     <tr>
                                        <th>S. No.</th>
+                                       <th>Id</th>
                                        <th>Name</th>
                                         <th>Status</th>
-                                        <th>Created At</th>
+                                        <th>Show</th>
+                                        <th>Select Single Plan</th>
+                                       <th>Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     {% for chatbot in chatbots %}
                                         <tr>
+                                            <td>{{chatbot.db_id}}</td>
                                             <td>{{chatbot.id}}</td>
                                             <td>{{chatbot.name}}</td>
                                             <td>{{chatbot.status}}</td>
-                                            <td>{{chatbot.created_at}}</td>
+                                            <td>{{chatbot.isActive}}</td>
+                                            <td>
+                                                <div class="tdIcon">
+                                                    
+                                                    {% if chatbot.singlePlan ===  false %}
+                                                      <a href="/admin/chatbot/makeSinglePlan/{{chatbot.db_id}}" title="Click for make Active">
+                                                         <i class="fa fa-check" aria-hidden="true"></i>
+                                                      </a>
+                                                      
+                                                   {% endif %}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="tdIcon">
+                                                    
+                                                    {% if chatbot.isActive ===  false %}
+                                                      <a href="/admin/chatbot/statusUpdate/{{chatbot.db_id}}" title="Click for make Active" style="background-color: red !important">
+                                                         <i class="fa fa-times" aria-hidden="true"></i>
+                                                      </a>
+                                                      {% else %}
+                                                      <a href="/admin/chatbot/statusUpdate/{{chatbot.db_id}}" title="Click for make Inactive">
+                                                         <i class="fa fa-check" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                </div>
+                                            </td>
                                         </tr>
                                     
                                     {% endfor %}

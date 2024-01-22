@@ -17,8 +17,8 @@ export class ChatbotModel implements Chatbot {
   name: string;
 
   @Property(String)
-  @Required()
-  user_id: string;
+  @Allow(null)
+  user_id: string | null;
 
   @Property(String)
   @Allow(null)
@@ -26,20 +26,20 @@ export class ChatbotModel implements Chatbot {
 
   @Property(Date)
   @Format("date-time")
-  @Required()
-  created_at: Date;
+  @Allow(null)
+  created_at: Date | null;
 
   @Property(String)
   @Allow(null)
   thumbnail_url: string | null;
 
   @Property(Boolean)
-  @Required()
-  is_featured: boolean;
-
-  @Property(String)
   @Allow(null)
-  domains: string | null;
+  is_featured: boolean | null;
+
+  @Property(Object)
+  @Allow(null)
+  domains: any | null;
 
   @Property(String)
   @Allow(null)
@@ -49,18 +49,23 @@ export class ChatbotModel implements Chatbot {
   @Allow(null)
   initial_message: string | null;
 
+  @Property(Object)
+  @Allow(null)
+  initial_messages: any | null;
+
   @Property(String)
-  @Required()
-  index_name: string;
+  @Allow(null)
+  index_name: string | null;
 
   @Property(Number)
   @Integer()
   @Allow(null)
   ip_limit: number | null;
 
-  @Property(String)
+  @Property(Number)
+  @Integer()
   @Allow(null)
-  ip_limit_timeframe: string | null;
+  ip_limit_timeframe: number | null;
 
   @Property(String)
   @Allow(null)
@@ -72,63 +77,59 @@ export class ChatbotModel implements Chatbot {
 
   @Property(String)
   @Allow(null)
-  initial_messages: string | null;
-
-  @Property(String)
-  @Allow(null)
   user_message_color: string | null;
 
+  @Property(Object)
+  @Allow(null)
+  styles: any | null;
+
   @Property(String)
   @Allow(null)
-  styles: string | null;
-
-  @Property(String)
-  @Required()
-  model: string;
+  model: string | null;
 
   @Property(Date)
   @Format("date-time")
-  @Required()
-  last_message_at: Date;
+  @Allow(null)
+  last_message_at: Date | null;
 
   @Property(Number)
   @Integer()
-  @Required()
-  num_of_characters: number;
+  @Allow(null)
+  num_of_characters: number | null;
 
   @Property(Date)
   @Format("date-time")
-  @Required()
-  last_trained_at: Date;
+  @Allow(null)
+  last_trained_at: Date | null;
 
   @Property(String)
-  @Required()
-  status: string;
+  @Allow(null)
+  status: string | null;
 
   @Property(Number)
   @Integer()
-  @Required()
-  temp: number;
+  @Allow(null)
+  temp: number | null;
 
   @Property(String)
   @Allow(null)
   collect_customer_info: string | null;
 
-  @Property(String)
+  @Property(Object)
   @Allow(null)
-  collect_customer_information: string | null;
+  collect_customer_information: any | null;
 
   @Property(Boolean)
-  @Required()
-  only_allow_on_added_domains: boolean;
+  @Allow(null)
+  only_allow_on_added_domains: boolean | null;
 
   @Property(String)
   @Allow(null)
   notifications_settings: string | null;
 
   @Property(String)
-  @Required()
-  retraining_interval: string;
+  @Allow(null)
+  retraining_interval: string | null;
 
   @Property(String)
   @Allow(null)
@@ -137,6 +138,16 @@ export class ChatbotModel implements Chatbot {
   @Property(String)
   @Allow(null)
   current_training_id: string | null;
+
+  @Property(Boolean)
+  @Allow(null)
+  @Groups("!creation")
+  singlePlan: boolean | null;
+
+  @Property(Boolean)
+  @Allow(null)
+  @Groups("!creation")
+  isActive: boolean | null;
 
   @Property(Date)
   @Format("date-time")

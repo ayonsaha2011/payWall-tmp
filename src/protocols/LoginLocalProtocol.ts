@@ -34,7 +34,6 @@ export class LoginLocalProtocol implements OnVerify, OnInstall {
                 },
                 select: {
                     id: true,
-                    userSessionId: true,
                     email: true,
                     name: true,
                     password: true,

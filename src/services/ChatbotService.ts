@@ -53,11 +53,12 @@ export class ChatbotService {
     async syncChatbot() {
         try {
             const result = await axios.get('/get-chatbots');
-            console.log('chatbots -', result);
+            // console.log('chatbots -', result);
             if (result.data && result.data.chatbots) {
                 const chatbots = result.data.chatbots;
                 for (let i = 0; i < chatbots.length; i++) {
                     const chatbot = chatbots[i];
+                    console.log('chatbot -', chatbot);
                     const chatbotData = {
                         id: chatbot.id,
                         name: chatbot.name,
@@ -72,9 +73,11 @@ export class ChatbotService {
                     };
                     const existingChatbot = await this.findOne({ where: { id: chatbot.id } });
                     if (existingChatbot) {
-                        await this.update(existingChatbot.db_id, chatbotData);
+                        const u = await this.update(existingChatbot.db_id, chatbot);
+                        console.log('u -', u);
                     } else {
-                        await this.create(chatbotData);
+                        const r = await this.create(chatbot);
+                        console.log('r -', r);
                     }
                 }
 
@@ -84,6 +87,25 @@ export class ChatbotService {
         }
     }
 
+    async statusUpdate(db_id: number) {
+        const chatbot = await this.findOne({ where: { db_id } });
+        if (chatbot) {
+            return await this.chatbotsRepository.update({
+                where: { db_id },
+                data: { isActive: !chatbot.isActive }
+            });
+        }
+        return null;
 
+    }
+
+    async makeSinglePlan(db_id: number) {
+        await this.chatbotsRepository.updateMany({
+            data: { singlePlan: false }
+        });
+
+        return await this.update(db_id, { singlePlan: true, isActive: true });;
+
+    }
 
 }
