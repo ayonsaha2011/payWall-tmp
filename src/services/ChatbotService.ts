@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@tsed/di";
-import { ChatbotsRepository } from "src/prisma";
 import axios from "axios";
+import { ChatbotsRepository } from '../prisma/repositories/ChatbotsRepository';
 
 axios.defaults.baseURL = 'https://www.chatbase.co/api/v1';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + process.env.CHAT_BASE_AUTH_TOKEN || 'eeb3a53b-5334-4171-9580-c55d8bf3f478'
