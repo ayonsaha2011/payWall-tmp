@@ -40,8 +40,4 @@ export class ContactUsService {
         });
     }
 
-    async count(options: any) {
-        return this.contactusesRepository.count(options);
-    }
-
 }
