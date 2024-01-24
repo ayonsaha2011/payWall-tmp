@@ -5,9 +5,6 @@ export class User {
     id: number;
 
     @Property()
-    userSessionId: string;
-
-    @Property()
     name: string;
 
     @Property()

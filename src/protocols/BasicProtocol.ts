@@ -23,7 +23,6 @@ export class BasicProtocol implements OnVerify, OnInstall {
             },
             select: {
                 id: true,
-                userSessionId: true,
                 email: true,
                 password: true,
                 role: true,
