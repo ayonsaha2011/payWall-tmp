@@ -45,10 +45,6 @@ export class ChatbotService {
         });
     }
 
-    async count(options: any) {
-        return this.chatbotsRepository.count(options);
-    }
-
 
     async syncChatbot() {
         try {
